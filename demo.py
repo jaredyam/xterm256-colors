@@ -23,15 +23,17 @@ class Xterm256Colors:
     CUBE_STEPS = (0x00, 0x5F, 0x87, 0xAF, 0xD7, 0xFF)
 
     def __getitem__(self, n_color):
-        """
-        Convert xterm Color index to an RGB value.
-
-        From: https://github.com/jart/fabulous/blob/19903cf0a980b82f5928c3bec1f28b6bdd3785bd/fabulous/xterm256.py
+        """Convert xterm color index to corresponding RGB triplet.
 
         Parameters
         ----------
         n_color : int
             Index of xterm color.
+
+        References
+        ----------
+        https://github.com/jart/fabulous/blob/19903cf0a980b82f5928c3bec1f28b6bdd3785bd/fabulous/xterm256.py
+        https://www.ditig.com/256-colors-cheat-sheet
         """
         assert 0 <= n_color <= 255
 
