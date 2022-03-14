@@ -110,17 +110,25 @@ class Xterm256Colors:
         with open("README.md", "w") as f:
             f.write(
                 f"""<table align="center" border="0">
-<tr><td align="center"><b>Hex</b></td><td align="center"><b>Visualization (with RGB)</b></td></tr>
+<tr>
+<td align="center"><b>Index</b></td>
+<td align="center"><b>Hex</b></td>
+<td align="center"><b>Display</b></td>
+</tr>
 """
             )
-            for rgb in iter(self):
+            for i, rgb in enumerate(self):
                 hex_color = self.triplet2hex(rgb)
                 svg_path = self.save_dir / f"{self.save_name(rgb)}.svg"
                 f.write(
-                    f"""<tr><td align="center">
+                    f"""<tr>
+<td align="center">{i}</td>
+<td align="center">
 
 #### `{hex_color}`
-</td><td align="center"><img src="{svg_path}" align="center"></td></tr>
+</td>
+<td align="center"><img src="{svg_path}"></td>
+</tr>
 """
                 )
             f.write("</table>\n")
